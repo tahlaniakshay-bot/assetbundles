@@ -1,0 +1,15 @@
+
+resources:
+  jobs:
+    Dab_ingestion_Job:
+      name: Dab_ingestion Job
+      tasks:
+        - task_key: ingestion
+          notebook_task:
+            notebook_path: ../../src/notebooks/ingestion.ipynb
+            base_parameters:
+              catalog_name: ${var.catalog_name}
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
